@@ -27,7 +27,7 @@ const PREFIX = process.env.PREFIX || '.';
 
 client.once('ready', () => {
     console.log(`[BOT] 🚀 Đăng nhập thành công với tên: ${client.user.tag}`);
-    client.user.setActivity('English Study Room 📚 | .help', { type: ActivityType.Watching });
+    client.user.setActivity('vstep-mastery.pages.dev 📚 | .help', { type: ActivityType.Watching });
 });
 
 // Voice session tracking (tính giờ học voice)
@@ -75,13 +75,31 @@ client.on('messageCreate', async (message) => {
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
     const cmd = args.shift().toLowerCase();
 
+    // Lệnh .web / .cbt / .link
+    if (cmd === 'web' || cmd === 'cbt' || cmd === 'link' || cmd === 'platform') {
+        const embed = new EmbedBuilder()
+            .setTitle('🌐 VSTEP C1 & IELTS MASTERY PLATFORM')
+            .setColor(0x0284C7)
+            .setDescription(
+                '🔗 **CỔNG KHẢO THÍ & LUYỆN THI CHUẨN HÓA:**\n\n' +
+                '• 🌐 **Trang chủ**: [vstep-mastery.pages.dev](https://vstep-mastery.pages.dev/)\n' +
+                '• 💻 **Thi Thử CBT Máy Tính (52 Đề)**: [Mở CBT Player](https://vstep-mastery.pages.dev/ielts-cbt/player/cbt_player.html)\n' +
+                '• 🔑 **Ngân hàng Đáp án & Giải thích**: [Tra cứu Answer Keys](https://vstep-mastery.pages.dev/ielts-cbt/player/answer_keys.html)\n' +
+                '• ❓ **Hỏi Đáp (FAQ)**: [vstep-mastery.pages.dev/faq.html](https://vstep-mastery.pages.dev/faq.html)\n\n' +
+                '📞 Hotline: **092.743.4662** | ✉️ Email: **vqvinh22@gmail.com**'
+            )
+            .setFooter({ text: 'VSTEP C1 & IELTS Mastery Platform' });
+        return message.reply({ embeds: [embed] });
+    }
+
     // Lệnh .help
     if (cmd === 'help' || cmd === 'trogiup') {
         const embed = new EmbedBuilder()
-            .setTitle('📚 ENGLISH STUDY BOT - DANH SÁCH LỆNH')
+            .setTitle('📚 VSTEP & IELTS MASTERY BOT - DANH SÁCH LỆNH')
             .setColor(0x38BDF8)
-            .setDescription('Chào mừng bạn đến với Server Học Tập Tiếng Anh! Dưới đây là các lệnh hỗ trợ:')
+            .setDescription('Chào mừng bạn đến với Hệ sinh thái Khảo thí VSTEP C1 & IELTS Mastery! Dưới đây là các lệnh hỗ trợ:')
             .addFields(
+                { name: '🌐 Cổng Nền Tảng Web', value: '`.web` / `.cbt` — Lấy link trực tiếp trang chủ, 52 bộ đề thi CBT và đáp án.' },
                 { name: '📊 Bảng Vinh Danh', value: '`.top` / `.xephang` / `.bxh` — Xem Bảng xếp hạng Top 10 học viên chăm chỉ nhất server (Canvas HD).' },
                 { name: '🎯 Hồ Sơ & Điểm Học Tập', value: '`.diem` / `.profile` / `.bal` — Kiểm tra Level, XP, Điểm học tập, số tin nhắn và giờ học voice.' },
                 { name: '🎁 Điểm Danh Hằng Ngày', value: '`.daily` — Điểm danh chuyên cần mỗi ngày để nhận ngay **+50,000 điểm**.' },

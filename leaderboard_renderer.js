@@ -205,7 +205,7 @@ async function renderLeaderboardImage(topUsers, extraInfo = {}) {
 
     // Chips thông tin bên phải header
     const chipY = 48;
-    const hText = 'ENGLISH LEARNING HUB 📚';
+    const hText = 'VSTEP & IELTS MASTERY 🎓';
     ctx.font = 'bold 13px "Segoe UI", Arial, sans-serif';
     const hWidth = ctx.measureText(hText).width + 36;
     const hX = width - 50 - hWidth;
@@ -401,7 +401,7 @@ async function renderLeaderboardImage(topUsers, extraInfo = {}) {
     const footerY = height - 22;
     ctx.fillStyle = '#64748B';
     ctx.font = '13px "Segoe UI", Arial, sans-serif';
-    ctx.fillText('English Learning Community • Dữ liệu học tập & vinh danh tự động cập nhật liên tục', 50, footerY);
+    ctx.fillText('vstep-mastery.pages.dev • Hệ thống Khảo thí & Vinh danh Chuyên cần VSTEP & IELTS', 50, footerY);
 
     const nowStr = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('vi-VN');
     ctx.textAlign = 'right';

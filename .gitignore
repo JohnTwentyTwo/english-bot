@@ -7,3 +7,5 @@ deploy_render.js
 *.png
 *.gif
 wait_live.js
+sync_platform.js
+renovate_server.js
