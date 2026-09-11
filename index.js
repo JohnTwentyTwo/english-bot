@@ -170,5 +170,25 @@ client.on('messageCreate', async (message) => {
     }
 });
 
+// Xử lý nút bấm nhận vai trò (Self-assign role button)
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isButton()) return;
+    if (interaction.customId === 'btn_role_notify') {
+        const role = interaction.guild.roles.cache.find(r => r.name.includes('Nhận Thông Báo Lịch Thi'));
+        if (!role) {
+            return interaction.reply({ content: '⚠️ Không tìm thấy vai trò thông báo!', ephemeral: true });
+        }
+        const member = interaction.member;
+        if (member.roles.cache.has(role.id)) {
+            await member.roles.remove(role.id).catch(() => null);
+            return interaction.reply({ content: '🔕 Đã hủy nhận vai trò **🔔 Nhận Thông Báo Lịch Thi**.', ephemeral: true });
+        } else {
+            await member.roles.add(role.id).catch(() => null);
+            return interaction.reply({ content: '🔔 Bạn đã nhận vai trò **🔔 Nhận Thông Báo Lịch Thi** thành công! Bạn sẽ nhận được ping khi có lịch thi thử CBT và workshop.', ephemeral: true });
+        }
+    }
+});
+
 // Đăng nhập bot
 client.login(process.env.DISCORD_TOKEN);
+

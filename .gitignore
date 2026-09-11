@@ -9,3 +9,5 @@ deploy_render.js
 wait_live.js
 sync_platform.js
 renovate_server.js
+apply_styling_rules.js
+setup_role_partitions.js
