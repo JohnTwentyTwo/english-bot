@@ -170,8 +170,6 @@ client.on('messageCreate', async (message) => {
     }
 });
 
-});
-
 // Đăng nhập bot
 client.login(process.env.DISCORD_TOKEN);
 
