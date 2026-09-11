@@ -6,3 +6,4 @@ create_github_repo.js
 deploy_render.js
 *.png
 *.gif
+wait_live.js
