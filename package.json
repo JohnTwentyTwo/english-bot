@@ -1,0 +1,21 @@
+{
+  "name": "english-bot",
+  "version": "1.0.0",
+  "description": "English Learning Discord Bot with Cloudflare D1 and Render 24/7",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "create-repo": "node github_create_repo.js",
+    "deploy-render": "node deploy_render.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
